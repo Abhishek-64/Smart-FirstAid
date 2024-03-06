@@ -1,0 +1,141 @@
+<style>
+  .search-btn{
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+  .search-btn:hover{
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .search-btn i{
+  display: inline;
+  margin-right: 0.5rem;
+  }
+  
+  .search-inp{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 0.9rem;
+  }
+  </style>
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top ">
+  <div class="container-fluid" style="background-color: #fff;width: 100vw;">
+    <a class="navbar-brand d-flex justify-content-center align-items-center" href="/">
+      <span class="material-symbols-outlined" style="color: red;transform: scale(1.5);">
+        <i class="fa-solid fa-suitcase-medical"></i>
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mr-5 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/listings"><b>Smart FirstAid</b></a>
+        </li>
+        <a class="nav-link me-4 " href="/symptoms">
+          <div class="symptoms" >
+              symptoms_Checker
+            </div>
+          </a>
+      </ul>
+
+      <div class="navbar-nav me-auto mb-2 mr-5 mb-lg-0" >
+        <form class="d-flex" role="search-inp">
+          <input class="form-control me-2 margin-right = 20% search-inp" type="search" placeholder="Search destinations">
+          <button class="btn search-btn" type="submit"><i class="fas fa-search"></i>Search</button>
+        </form>
+      </div>
+      <div class="nav-item dropdown me-5 ">
+        <button class="btn btn-light dropdown-toggle my-2 " data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle"
+            viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-light">
+          <% if(!currUser){ %>
+        <li>
+          <a class="btn btn-primary dropdown-item"  href="/login" >
+            Login
+          </a>
+        </li>
+        <li>
+          <a class="btn btn-primary dropdown-item"  href="/signup" >
+            Register
+          </a>
+        </li>
+        <% }else{ %>
+          <li>
+            <a class="btn btn-danger dropdown-item"  href="/logout" >
+              logout
+            </a>
+          </li>
+        <% } %>
+        <li>
+          <a class="dropdown-item" href="/">
+            Home 
+          </a>
+        </li>
+        </ul>
+      </div>
+      <a class="nav-link me-2" href="/listings/new">
+      <div class="add">
+          Add new Blog
+          &nbsp;
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg>
+        </div>
+      </a>
+     
+    </div>
+  </div>
+  </div>
+</nav>
+
+<!-- <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex justify-content-center align-items-center" href="/listings">
+        <span class="material-symbols-outlined" style="color: red;transform: scale(1.5);">
+          <i class="fa-solid fa-suitcase-medical"></i>
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings"><b>Smart FirstAid</b></a>
+          <a class="nav-link" href="/symptoms">symptoms search</a>
+        </div>
+        <div class="navbar-nav ms-auto" >
+          <form class="d-flex" role="search-inp">
+            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations">
+            <button class="btn search-btn" type="submit"><i class="fas fa-search"></i>Search</button>
+          </form>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Add new Blog</a>
+          <% if(!currUser){ %>
+            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+            <a class="nav-link" href="/login"><b>Log in</b></a>
+          <% } %>
+          <% if(currUser){ %>
+          <a class="nav-link" href="/logout"><b>Log out</b></a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav> -->

@@ -1,0 +1,127 @@
+<% layout("/layouts/boilerplate") -%>
+<style>
+  #filters {
+    display: flex;
+    width: 100% !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .filter {
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+  }
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .filter p {
+    font-size: 0.8rem;
+  }
+  .tax-toggle {
+    
+    border-radius: 1rem;
+    height: 3.25rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #fe424d;
+    color: white;
+  }
+</style>
+
+<!-- <form action="/listings/new" method = "GET">
+        <button>Create New Listing</button>
+    </form> -->
+<div id="filters">
+  <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-temperature-full"></i></div>
+    <p>Fever</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-head-side-virus"></i></div>
+    <p>Headache</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-hospital"></i></div>
+    <p>hospital</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-heart-circle-exclamation"></i></i></div>
+    <p>Heart-attack</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-bowl-food"></i></div>
+    <p>food poisoning</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-smoking"></i></div>
+    <p>smoking</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-weight-scale"></i></div>
+    <p>Weight-loss</p>
+  </div>
+  <!-- <div class="filter">
+    <div><i class="fa-solid fa-eye"></i></div>
+    <p>Eye-Cancer</p>
+  </div> -->
+  <!-- <div class="filter">
+  <div><i class="fas fa-igloo"></i></div>
+  <p>Domes</p>
+</div>
+<div class="filter">
+  <div><i class="fas fa-ship"></i></div>
+  <p>Boats</p>
+</div>  -->
+  <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckDefault"
+      />
+      <label class="form-check-label" for="flexSwitchCheckDefault"
+        >Display chatbot button</label
+      >
+    </div>
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListings){ %>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card col listing-card">
+        <img
+          src="<%= listing.image.url %> "
+          class="card-img-top"
+          alt="Listing Image"
+          style="height: 20rem"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text"><b><%= listing.title %></b><br /></p>
+        </div>
+      </div>
+    </a>
+    <%} %>
+  </div>
+</div>
+
+<script>
+  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+  let chatbutton = document.querySelector("#chatbutton");
+  taxSwitch.addEventListener("click", () => {
+    if (chatbutton.style.display == "flex") {
+      chatbutton.style.display = "none";
+    } else {
+      chatbutton.style.display = "flex";
+    }
+  });
+</script>

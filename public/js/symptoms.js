@@ -5,7 +5,7 @@ $(document).ready(() => {
   const deleteButton = document.querySelector("#delete-btn");
 
   let userText = null;
-  const API_KEY = "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"; // Paste your API key here
+  const API_KEY = "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"; // Paste your API key here
   const API_VKEY = "AIzaSyBIY03Wk9Bav1LKB7e6w4V51O2HRHG8DBo";
   var video = "";
   const loadDataFromLocalstorage = () => {
